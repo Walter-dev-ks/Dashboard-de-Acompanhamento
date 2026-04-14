@@ -73,12 +73,18 @@ const Dashboard = () => {
       </div>
 
       {/* Charts */}
+      {/* Desktop: Grid com Pizza e Barra lado a lado | Mobile: Apenas Pizza */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <StatusPieChart projects={allProjects} />
-        <SecretariaBarChart secretarias={secretarias} />
+        <div className="hidden lg:block">
+          <SecretariaBarChart secretarias={secretarias} />
+        </div>
       </div>
 
-      <TimelineChart projects={allProjects} />
+      {/* Timeline - Oculto em smartphones (md e acima) */}
+      <div className="hidden md:block">
+        <TimelineChart projects={allProjects} />
+      </div>
     </div>
   );
 };
